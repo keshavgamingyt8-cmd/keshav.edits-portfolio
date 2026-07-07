@@ -46,36 +46,57 @@ link.classList.add("active");
 
 });
 // Counter Animation
+const counters = document.querySelectorAll(".counter");
+let counterStarted = false;
 
-const counters=document.querySelectorAll(".counter");
+function runCounters() {
 
-counters.forEach(counter=>{
+    if (counterStarted) return;
 
-let start=0;
+    const statsSection = document.querySelector(".stats");
 
-const end=+counter.dataset.target;
+    const sectionTop = statsSection.getBoundingClientRect().top;
 
-const speed=40;
+    if (sectionTop < window.innerHeight - 100) {
 
-const update=()=>{
+        counterStarted = true;
 
-start++;
+        counters.forEach(counter => {
 
-counter.innerText=start;
+            const target = +counter.dataset.target;
 
-if(start<end){
+            let current = 0;
 
-setTimeout(update,speed);
+            const increment = Math.ceil(target / 80);
+
+            const updateCounter = () => {
+
+                current += increment;
+
+                if (current >= target) {
+
+                    counter.innerText = target;
+
+                } else {
+
+                    counter.innerText = current;
+
+                   setTimeout(updateCounter,30);
+
+                }
+
+            };
+
+            updateCounter();
+
+        });
+
+    }
 
 }
 
-};
-
-update();
-
-});
-
-
+window.addEventListener("scroll", runCounters);
+runCounters();
 
 // FAQ
 
