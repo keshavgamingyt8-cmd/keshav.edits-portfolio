@@ -1175,11 +1175,13 @@ padding-top:140px !important;
 
 .preview-card{
 
-width:320px !important;
+width:90% !important;
 
-height:420px !important;
+max-width:380px !important;
 
-margin:40px auto 0;
+height:520px !important;
+
+margin:30px auto 0;
 
 }
 
