@@ -304,7 +304,7 @@ transform:translateY(-12px) rotate(-2deg);
 
 /* Mobile */
 
-@media(max-width:1200px){
+@media(max-width:900px){
 
 .navbar ul{
 display:none;
@@ -328,7 +328,7 @@ font-size:17px;
 
 .preview-card{
 width:100%;
-max-width:340px;
+max-width:380px;
 height:430px;
 }
 
